@@ -12,6 +12,7 @@ void main() {
   // aluno.keys.forEach((key) {
   //   print(key);
   // });
+
   // print('----------------');
 
   // for (var key in aluno.keys) {
@@ -33,28 +34,51 @@ void main() {
     {
       'Nome': 'Edson',
       'Idade': 22,
-      'Situacao': 'Não definido',
+      'Situacao': 'Aprovado',
       'Nota': 5,
     },
     {
       'Nome': 'Evandro',
-      'Idade': 53,
-      'Situacao': 'Não definido',
+      'Idade': '53',
+      'Situacao': 'Aprovado',
       'Nota': 8,
     },
     {
       'Nome': 'Marcelo',
-      'Idade': 62,
-      'Situacao': 'Não definido',
+      'Idade': 62.21,
+      'Situacao': 'Reprovado',
       'Nota': 0,
     },
   ];
 
-  var listaDeNotas = alunos.map((aluno) => (aluno['Nota'] as int)).toList();
+  // var aprovados = alunos
+  //     .where((aluno) => aluno['Idade'] is int)
+  //     .map((aluno) => aluno['Nome']);
 
-  var total = listaDeNotas.reduce((total, nota) => total + nota);
+  // var listaDeNotas = alunos.map((aluno) => (aluno['Nota'] as int)).toList();
 
-  var media = total / alunos.length;
+  // var total = listaDeNotas.reduce((total, nota) => total + nota);
 
-  print(media.toStringAsFixed(2));
+  // var media = total / alunos.length;
+
+  // aluno.removeWhere((key, value) {
+  //   if (key == 'Idade') {
+  //     return true;
+  //   }
+  //   return false;
+  // });
+
+  aluno.addAll({'Idade': 22});
+
+  aluno.addEntries([MapEntry('Tem carro?', true)]);
+
+  aluno.update('Qualquer', (value) => 24, ifAbsent: () => 30);
+
+  aluno.putIfAbsent('Qualquer 2', () => 'Qualquer');
+
+  aluno.putIfAbsent('Idade', () => 45);
+
+  print(aluno.containsKey('sadasdsa'));
+
+  print(aluno);
 }
